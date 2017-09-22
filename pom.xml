@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.vinci</groupId>
+    <artifactId>freemarker-learn</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <properties>
+        <nexusUri>http://ttestplus.jointforce.com:8081</nexusUri>
+        <compilerMavenPlugin>3.6.1</compilerMavenPlugin>
+        <compilerSource>1.8</compilerSource>
+        <compilerTarget>1.8</compilerTarget>
+        <compilerEncoding>UTF-8</compilerEncoding>
+        <springBootMavenPluginVersion>1.5.2.RELEASE</springBootMavenPluginVersion>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${compilerMavenPlugin}</version>
+                <configuration>
+                    <source>${compilerSource}</source>
+                    <target>${compilerTarget}</target>
+                    <encoding>${compilerEncoding}</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${springBootMavenPluginVersion}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>1.5.7.RELEASE</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-freemarker</artifactId>
+            <version>1.5.7.RELEASE</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <version>1.5.7.RELEASE</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <repositories>
+        <repository>
+            <id>nexus</id>
+            <name>Team Nexus Repository</name>
+            <url>${nexusUri}/nexus/content/repositories/central/</url>
+        </repository>
+        <repository>
+            <id>F1-Snapshots</id>
+            <name>Team Nexus Repository</name>
+            <url>${nexusUri}/nexus/content/repositories/F1-Snapshots/</url>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>nexus</id>
+            <name>Team Nexus Repository</name>
+            <url>${nexusUri}/nexus/content/repositories/central/</url>
+        </pluginRepository>
+    </pluginRepositories>
+</project>
